@@ -1,0 +1,52 @@
+<p style="color: green"><%= notice %></p>
+<div class="card">
+  <img src="/app/assets/images/grid_0.png" alt="RoomStockImage" style="width:100%">
+  <div class="container">
+  <div class="card2" style="float: right">
+  <div class="container">
+    <section class="vh-100">
+                <form>
+                  <div class="d-flex align-items-center mb-4 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    <span class="h1 fw-bold mb-0">Go to your room</span>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                    <label class="form-label" for="form2Example17">Enter your room number</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                    <label class="form-label" for="form2Example27">Enter your registration code</label>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                  </div>
+
+                  <a class="small text-muted" href="#!">Forgot password?</a>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                      style="color: #393f81;">Register here</a></p>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+              </div>
+</section>
+
+  </div>
+</div>
+  </div>
+</div>
+<h1>Services</h1>
+
+<div id="services">
+  <% @services.each do |service| %>
+    <%= render service %>
+    <p>
+      <%= link_to "Show this service", service %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New service", new_service_path %>

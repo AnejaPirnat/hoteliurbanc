@@ -1,0 +1,50 @@
+#neubar {
+    background: rgb(64,15,69);
+    background: linear-gradient(90deg, rgba(64,15,69,1) 0%, rgba(24,3,26,1) 100%);
+  }
+  
+  .nav-item .active {
+    border-radius: 6px;
+    background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+    box-shadow:  4px 4px 8px #ddc1a0,
+                 -4px -4px 8px #f7e5cc;
+  }
+  #neubar .dropdown-menu a:hover {
+    color: #683c72;
+  }
+  #neubar .nav-item {
+    margin : auto 4px;
+  }
+  #neubar a {
+  
+    padding-left:12px;
+    padding-right:12px;
+  }
+  #neubar .dropdown-menu {
+    background : #693f73;
+  }
+  a.navbar-brand {
+    color: white;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    background: rgb(97,59,107);
+    background: radial-gradient(circle, rgba(97,59,107,1) 0%, rgba(67,42,74,1) 100%);
+  }
+
+  .card2
+  {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    background: rgb(227,222,235);
+    background: radial-gradient(circle, rgba(227,222,235,1) 0%, rgba(182,172,192,1) 100%);
+  }
+  
+  /* Add rounded corners to the top left and the top right corner of the image */
+  img {
+    border-radius: 5px 5px 0 0;
+  }
