@@ -2,7 +2,7 @@
   <div class="login-card" style="margin: 0 auto; margin-top: 40px; margin-bottom: 40px;">
     <div class="row">
       <div class="col-md-12">
-        <%= image_tag("hotelroom.png", alt: "hotelroom", width: 300, height: 260) %>
+        <%= image_tag("hotelroom.png", alt: "hotelroom", width: 350, height: 290) %>
       </div>
       <div class="col-md-12">
         <div class="card-header">
@@ -45,6 +45,7 @@
                 <%= f.submit "Enter", class:"login-button" %>
               </div>
             </div>
+            <%= render "devise/shared/links" %>
           </form>
         </div>
       </div>
