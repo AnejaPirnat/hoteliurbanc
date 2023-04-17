@@ -1,0 +1,53 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="login-card" style="margin: 0 auto; margin-top: 40px; margin-bottom: 40px;">
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag("hotelroom.png", alt: "hotelroom", width: 300, height: 260) %>
+      </div>
+      <div class="col-md-12">
+        <div class="card-header">
+          <h1>Enter your room</h1>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="username">Email</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <label for="password">Room number</label>
+              <div class="input-group">
+                <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id: "password_field" %>
+                <button type="button" id="reveal_password" class="btn btn-secondary">Show</button>
+              </div>
+            </div>
+            <script>
+              var passwordField = document.getElementById("password_field");
+              var revealButton = document.getElementById("reveal_password");
+              revealButton.addEventListener("click", function() {
+                if (passwordField.type === "password") {
+                  passwordField.type = "text";
+                  revealButton.textContent = "Hide";
+                } else {
+                  passwordField.type = "password";
+                  revealButton.textContent = "Show";
+                }
+              });
+            </script>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+            <div class="form-group">
+              <div class="actions">
+                <%= f.submit "Enter", class:"login-button" %>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

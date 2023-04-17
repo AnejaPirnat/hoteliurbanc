@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /services or /services.json
   def index
     @services = Service.all
@@ -66,5 +66,12 @@ class ServicesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def service_params
       params.require(:service).permit(:title, :description)
+    end
+    def authenticate_user!
+        if user_signed_in?
+          super
+        else
+          redirect_to new_user_session_path, notice: "Please sign in"
+        end
     end
 end
