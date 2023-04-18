@@ -30,82 +30,139 @@
 </div>
 </div>
 <div class="login-card2">
-  <h3>Food</h3>
-  <h5>Our daily selection</h5>
+  <h3>Food </h3>
+  <h5>Check out today's food selection!</h5>
   <hr>
-  <br>
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+
+  <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="cardfood">
-  <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-    data-mdb-ripple-color="light">
-    <img src="https://img.delicious.com.au/bjQdV7xU/w1200/del/2022/02/vibrant-chickpea-burgers-163338-2.jpg"
-      class="w-100" style="border-radius: 10px"/>
-      <div class="hover-overlay">
-        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-      </div>
-    </a>
-  </div>
-  <div class="card-body">
-    <a href="" class="text-reset">
-      <h5 class="card-title mb-3">Burger</h5>
-    </a> 
-    <%= check_box_tag(:food, 'Order') %>
-    <%= label_tag(:food_order, 'Order', style: 'font-size: 20px;') %>
-  </div>
-</div>
-    </div>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="cardfood">
-        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-          data-mdb-ripple-color="light">
-          <img src="https://img.delicious.com.au/bjQdV7xU/w1200/del/2022/02/vibrant-chickpea-burgers-163338-2.jpg"
-            class="w-100" style="border-radius: 10px"/>
-          <div class="hover-overlay">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+    <div class="item active">
+      <div class="card">
+        <%= image_tag("breakfast.png", alt: "breakfast", width:"300", height:"200") %>
+        <div class="card-body">
+          <h4 class="card-title">Breakfast Toast With Egg</h4>
+          <p class="card-text">6,99€</p>
+          <div class="order" style ="text-align: center;">
+          <%= check_box_tag(:order, 'Order') %>
+          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="card">
+        <%= image_tag("lunch.png", alt: "lunch", width:"300", height:"200") %>
         <div class="card-body">
-          <a href="" class="text-reset">
-            <h5 class="card-title mb-3">Burger</h5>
-          </a> 
-          <%= check_box_tag(:food, 'Order') %>
-          <%= label_tag(:food_order, 'Order', style: 'font-size: 20px;') %>
+          <h4 class="card-title">Chicken plate</h4>
+          <p class="card-text">15,99€</p>
+          <div class="order" style ="text-align: center;">
+          <%= check_box_tag(:order, 'Order') %>
+          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="cardfood">
-        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-          data-mdb-ripple-color="light">
-          <img src="https://img.delicious.com.au/bjQdV7xU/w1200/del/2022/02/vibrant-chickpea-burgers-163338-2.jpg"
-            class="w-100" style="border-radius: 10px"/>
-          <div class="hover-overlay">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </div>
-        </div>
+
+    <div class="item">
+      <div class="card">
+        <%= image_tag("vegantaco.jpeg", alt: "taco", width:"300", height:"200") %>
         <div class="card-body">
-          <a href="" class="text-reset">
-            <h5 class="card-title mb-3">Burger</h5>
-          </a> 
-          <%= check_box_tag(:food, 'Order') %>
-          <%= label_tag(:food_order, 'Order', style: 'font-size: 20px;') %>
+          <h4 class="card-title">Vegan Taco</h4>
+          <p class="card-text">15,99€</p>
+          <div class="order" style ="text-align: center;">
+          <%= check_box_tag(:order, 'Order') %>
+          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+
+<div class="login-card2">
+<h3>Drink </h3>
+  <h5>Order something to drink!</h5>
+  <hr>
+  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="card">
+        <%= image_tag("coffee.jpeg", alt: "coffee", width:"300", height:"200") %>
+        <div class="card-body">
+          <h4 class="card-title">Coffee with Milk</h4>
+          <p class="card-text">3,50€</p>
+          <div class="order" style ="text-align: center;">
+          <%= check_box_tag(:order, 'Order') %>
+          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="card">
+        <%= image_tag("blackcoffee.jpeg", alt: "blackcoffee", width:"300", height:"200") %>
+        <div class="card-body">
+          <h4 class="card-title">Black Coffee</h4>
+          <p class="card-text">2,50€</p>
+          <div class="order" style ="text-align: center;">
+          <%= check_box_tag(:order, 'Order') %>
+          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="card">
+        <%= image_tag("juice.jpeg", alt: "juice", width:"300", height:"200") %>
+        <div class="card-body">
+          <h4 class="card-title">Juice</h4>
+          <p class="card-text">2,50€</p>
+          <div class="order" style ="text-align: center;">
+          <%= check_box_tag(:order, 'Order') %>
+          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+
+
+
+
 
 <div id="services">
   <% @services.each do |service| %>
