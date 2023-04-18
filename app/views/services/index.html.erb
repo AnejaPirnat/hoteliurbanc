@@ -7,7 +7,7 @@
 <div class="cards-container">
 <div class="login-card2">
   <h3>Room cleaning</h3>
-  <h5>Schedule</h5>
+  <h5>Schedule when you want us to clean your room</h5>
   <hr>
   <br>
   <div class="cleaning-schedule">
@@ -94,8 +94,34 @@
 </div>
 </div>
 
+<div class="login-card2" style="width:375px">
+<h3>Activities </h3>
+  <h5>Sign up for activities!</h5>
+  <div class="activity">
+    <%= check_box_tag(:activity, 'Yoga') %>
+    <%= label_tag(:activity_yoga, 'Yoga class', style: 'font-size: 20px;') %>
+      <label> 30,00€ </label>
+  </div>
+
+  <div class="activity">
+    <%= check_box_tag(:activity, 'Massage') %>
+    <%= label_tag(:activity_massage, 'Massage', style: 'font-size: 20px;') %>
+    <label> 20,00€ </label>
+  </div>
+
+  <div class="activity">
+    <%= check_box_tag(:activity, 'Fitnes') %>
+    <%= label_tag(:activity_gym, 'Fitnes', style: 'font-size: 20px;') %>
+    <label> 20,00€ </label>
+  </div>
+  <div class="image-container">
+  <%= image_tag("yoga.png", alt: "roomservice", width: 300, height: 210, class: "roomservice-image") %>
+</div>
+
+</div>
+
 <div class="login-card2">
-<h3>Drink </h3>
+<h3>Drinks </h3>
   <h5>Order something to drink!</h5>
   <hr>
   <div id="myCarousel2" class="carousel slide" data-ride="carousel">
