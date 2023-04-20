@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Cleaning tables</h1>
+
+<div id="cleaning_tables">
+  <% @cleaning_tables.each do |cleaning_table| %>
+    <%= render cleaning_table %>
+    <p>
+      <%= link_to "Show this cleaning table", cleaning_table %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New cleaning table", new_cleaning_table_path %>

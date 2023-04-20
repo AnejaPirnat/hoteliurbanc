@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cleaning %>
+
+<div>
+  <%= link_to "Edit this cleaning", edit_cleaning_path(@cleaning) %> |
+  <%= link_to "Back to cleanings", cleanings_path %>
+
+  <%= button_to "Destroy this cleaning", @cleaning, method: :delete %>
+</div>

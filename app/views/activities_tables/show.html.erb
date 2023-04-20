@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @activities_table %>
+
+<div>
+  <%= link_to "Edit this activities table", edit_activities_table_path(@activities_table) %> |
+  <%= link_to "Back to activities tables", activities_tables_path %>
+
+  <%= button_to "Destroy this activities table", @activities_table, method: :delete %>
+</div>

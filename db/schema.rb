@@ -10,9 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_17_094111) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_155040) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "activities_tables", force: :cascade do |t|
+    t.datetime "ordered", precision: nil
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.index ["activity_id"], name: "index_activities_tables_on_activity_id"
+    t.index ["user_id"], name: "index_activities_tables_on_user_id"
+  end
+
+  create_table "cleaning_tables", force: :cascade do |t|
+    t.datetime "ordered", precision: nil
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "cleaning_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["cleaning_id"], name: "index_cleaning_tables_on_cleaning_id"
+    t.index ["user_id"], name: "index_cleaning_tables_on_user_id"
+  end
+
+  create_table "cleanings", force: :cascade do |t|
+    t.time "hour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "ordered", precision: nil
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "food_id", null: false
+    t.index ["food_id"], name: "index_orders_on_food_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.integer "number"
@@ -40,4 +93,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_094111) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities_tables", "activities"
+  add_foreign_key "activities_tables", "users"
+  add_foreign_key "cleaning_tables", "cleanings"
+  add_foreign_key "cleaning_tables", "users"
+  add_foreign_key "orders", "foods"
+  add_foreign_key "orders", "users"
 end
