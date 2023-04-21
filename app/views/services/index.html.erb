@@ -2,11 +2,11 @@
 
  <div class="service-card" style="margin: 0 auto; margin-top: 40px; margin-bottom: 40px;">
     <div class="row">
+<div style="text-align: right; float:right;">
+<i class="bi bi-basket"></i>
+</div>
 <h1>Hello!</h1>
 <h2> Order services to your room! </h2>
-<div style="float:right">
-<i class="bi bi-basket"></i> price
-</div>
 <div class="cards-container">
 <div class="login-card2">
   <h3>Room cleaning</h3>
@@ -37,45 +37,26 @@
   <h5>Check out today's food selection!</h5>
   <hr>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-
-
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
+  <% @food.each do |f| %>
+    <div class="item
+    <% if (f.id == 1) %>
+      <%= "active" %>
+    <% end %>">
       <div class="card">
+      <% if (f.id == 1) %>
         <%= image_tag("breakfast.png", alt: "breakfast", width:"300", height:"200") %>
-        <div class="card-body">
-          <h4 class="card-title">Breakfast Toast With Egg</h4>
-          <p class="card-text">6,99€</p>
-          <div class="order" style ="text-align: center;">
-          <%= check_box_tag(:order, 'Order') %>
-          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="card">
+      <% end %>
+      <% if (f.id == 2) %>
         <%= image_tag("lunch.png", alt: "lunch", width:"300", height:"200") %>
-        <div class="card-body">
-          <h4 class="card-title">Chicken plate</h4>
-          <p class="card-text">15,99€</p>
-          <div class="order" style ="text-align: center;">
-          <%= check_box_tag(:order, 'Order') %>
-          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="card">
+      <% end %>
+      <% if (f.id == 3) %>
         <%= image_tag("vegantaco.jpeg", alt: "taco", width:"300", height:"200") %>
+      <% end %>
         <div class="card-body">
-          <h4 class="card-title">Vegan Taco</h4>
-          <p class="card-text">15,99€</p>
+          <h4 class="card-title"> <%= f.name%></h4>
+          <p class="card-text"> <%= f.price %>€</p>
           <div class="order" style ="text-align: center;">
           <%= check_box_tag(:order, 'Order') %>
           <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
@@ -83,6 +64,7 @@
         </div>
       </div>
     </div>
+  <% end %>
   </div>
 
   <!-- Left and right controls -->
@@ -128,45 +110,27 @@
   <h5>Order something to drink!</h5>
   <hr>
   <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
+  <% @drink.each do |d| %>
+    <div class="item
+    <% if (d.id == 1) %>
+      <%= "active" %>
+    <% end %>">
       <div class="card">
+      <% if (d.id == 1) %>
         <%= image_tag("coffee.jpeg", alt: "coffee", width:"300", height:"200") %>
-        <div class="card-body">
-          <h4 class="card-title">Coffee with Milk</h4>
-          <p class="card-text">3,50€</p>
-          <div class="order" style ="text-align: center;">
-          <%= check_box_tag(:order, 'Order') %>
-          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="card">
+      <% end %>
+      <% if (d.id == 2) %>
         <%= image_tag("blackcoffee.jpeg", alt: "blackcoffee", width:"300", height:"200") %>
-        <div class="card-body">
-          <h4 class="card-title">Black Coffee</h4>
-          <p class="card-text">2,50€</p>
-          <div class="order" style ="text-align: center;">
-          <%= check_box_tag(:order, 'Order') %>
-          <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="card">
+      <% end %>
+      <% if (d.id == 3) %>
         <%= image_tag("juice.jpeg", alt: "juice", width:"300", height:"200") %>
+      <% end %>
         <div class="card-body">
-          <h4 class="card-title">Juice</h4>
-          <p class="card-text">2,50€</p>
+          <h4 class="card-title"><%= d.name%></h4>
+          <p class="card-text"><%= d.price%>€</p>
           <div class="order" style ="text-align: center;">
           <%= check_box_tag(:order, 'Order') %>
           <%= label_tag(:order_toast, 'Order', style: 'font-size: 20px;') %>
@@ -174,6 +138,7 @@
         </div>
       </div>
     </div>
+<% end%>
   </div>
 
   <!-- Left and right controls -->
@@ -188,11 +153,6 @@
 </div>
 </div>
 
-
-
-
-
-
 <div id="services">
   <% @services.each do |service| %>
     <%= render service %>
@@ -203,5 +163,3 @@
 </div>
 </div>
 </div>
-
-<%= link_to "New service", new_service_path %>

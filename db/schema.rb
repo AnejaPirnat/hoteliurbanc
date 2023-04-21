@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_155040) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_21_145701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_155040) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -63,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_155040) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "food_id", null: false
+    t.bigint "drink_id", null: false
+    t.index ["drink_id"], name: "index_orders_on_drink_id"
     t.index ["food_id"], name: "index_orders_on_food_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -97,6 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_155040) do
   add_foreign_key "activities_tables", "users"
   add_foreign_key "cleaning_tables", "cleanings"
   add_foreign_key "cleaning_tables", "users"
+  add_foreign_key "orders", "drinks"
   add_foreign_key "orders", "foods"
   add_foreign_key "orders", "users"
 end

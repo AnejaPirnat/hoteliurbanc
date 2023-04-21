@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :drinks
   resources :activities_tables
   resources :cleaning_tables
   resources :orders
