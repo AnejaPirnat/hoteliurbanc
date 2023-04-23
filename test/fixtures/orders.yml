@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ordered: 2023-04-20 17:31:01
-  complete: false
+  service: one
+  user: one
+  priceAtPurchase: 1.5
+  receipt: one
 
 two:
-  ordered: 2023-04-20 17:31:01
-  complete: false
+  service: two
+  user: two
+  priceAtPurchase: 1.5
+  receipt: two

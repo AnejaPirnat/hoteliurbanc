@@ -1,12 +1,16 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+
   # GET /services or /services.json
   def index
-    @services = Service.all
-    @food = Food.all
-    @drink = Drink.all
+    @food = Service.all.where(serviceType:"Food")
+    @drink = Service.all.where(serviceType:"Drink")
+    @activity = Service.all.where(serviceType:"Activity")
+    @cleaning = Service.all.where(serviceType:"Cleaning")
+    @order = Order.new(order_params)
   end
+
+  
 
   # GET /services/1 or /services/1.json
   def show
@@ -20,6 +24,8 @@ class ServicesController < ApplicationController
   # GET /services/1/edit
   def edit
   end
+
+
 
   # POST /services or /services.json
   def create
@@ -67,13 +73,11 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:title, :description)
+      params.require(:service).permit(:name, :type, :description)
     end
-    def authenticate_user!
-        if user_signed_in?
-          super
-        else
-          redirect_to new_user_session_path, notice: "Please sign in"
-        end
+
+    def order_params
+      params.permit(:cleaning, :food, :drink, :order)
     end
 end
+

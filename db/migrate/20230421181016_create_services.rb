@@ -1,8 +1,9 @@
 class CreateServices < ActiveRecord::Migration[7.0]
   def change
     create_table :services do |t|
-      t.string :title
-      t.string :description
+      t.text :name
+      t.text :serviceType
+      t.text :description
 
       t.timestamps
     end

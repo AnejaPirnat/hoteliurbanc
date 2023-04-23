@@ -14,8 +14,10 @@ class OrdersTest < ApplicationSystemTestCase
     visit orders_url
     click_on "New order"
 
-    check "Complete" if @order.complete
-    fill_in "Ordered", with: @order.ordered
+    fill_in "Priceatpurchase", with: @order.priceAtPurchase
+    fill_in "Receipt", with: @order.receipt_id
+    fill_in "Service", with: @order.service_id
+    fill_in "User", with: @order.user_id
     click_on "Create Order"
 
     assert_text "Order was successfully created"
@@ -26,8 +28,10 @@ class OrdersTest < ApplicationSystemTestCase
     visit order_url(@order)
     click_on "Edit this order", match: :first
 
-    check "Complete" if @order.complete
-    fill_in "Ordered", with: @order.ordered
+    fill_in "Priceatpurchase", with: @order.priceAtPurchase
+    fill_in "Receipt", with: @order.receipt_id
+    fill_in "Service", with: @order.service_id
+    fill_in "User", with: @order.user_id
     click_on "Update Order"
 
     assert_text "Order was successfully updated"

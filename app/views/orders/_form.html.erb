@@ -12,13 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :ordered, style: "display: block" %>
-    <%= form.datetime_field :ordered %>
+    <%= form.label :service_id, style: "display: block" %>
+    <%= form.text_field :service_id %>
   </div>
 
   <div>
-    <%= form.label :complete, style: "display: block" %>
-    <%= form.check_box :complete %>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :priceAtPurchase, style: "display: block" %>
+    <%= form.text_field :priceAtPurchase %>
+  </div>
+
+  <div>
+    <%= form.label :receipt_id, style: "display: block" %>
+    <%= form.text_field :receipt_id %>
   </div>
 
   <div>

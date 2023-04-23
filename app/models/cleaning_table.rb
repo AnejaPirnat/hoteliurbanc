@@ -1,2 +1,0 @@
-class CleaningTable < ApplicationRecord
-end

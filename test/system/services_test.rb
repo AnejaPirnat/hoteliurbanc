@@ -15,7 +15,8 @@ class ServicesTest < ApplicationSystemTestCase
     click_on "New service"
 
     fill_in "Description", with: @service.description
-    fill_in "Title", with: @service.title
+    fill_in "Name", with: @service.name
+    fill_in "Type", with: @service.type
     click_on "Create Service"
 
     assert_text "Service was successfully created"
@@ -27,7 +28,8 @@ class ServicesTest < ApplicationSystemTestCase
     click_on "Edit this service", match: :first
 
     fill_in "Description", with: @service.description
-    fill_in "Title", with: @service.title
+    fill_in "Name", with: @service.name
+    fill_in "Type", with: @service.type
     click_on "Update Service"
 
     assert_text "Service was successfully updated"
