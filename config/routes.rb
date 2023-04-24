@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'receipts/my_receipts'
   resources :orders
+  resources :users
   resources :services
   resources :activities_tables
   resources :activities
@@ -10,11 +12,9 @@ Rails.application.routes.draw do
   root "services#index"
   get '/orders', to: 'orders#index', as: 'orders_index'
   post '/createorder', to: 'orders#create'
+  get '/receipts/:id', to: 'receipts#show', as: 'receipt'
+  get 'my_orders', to: 'orders#my_orders'
+  get 'my_receipts', to: 'receipts#my_receipts'
+  get '/admin', to: 'admin#admin_panel', as: 'admin_panel'
   
-
-
-
-
-
-
 end

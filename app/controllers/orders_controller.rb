@@ -10,6 +10,14 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def my_orders
+    @orders = current_user.orders
+  end
+
+  def my_receipts
+    @receipts = current_user.receipts
+  end
+
   # GET /orders/new
   def new
     @order = Order.new
@@ -27,6 +35,7 @@ class OrdersController < ApplicationController
     @receipt.paid = false
     @receipt.save
     raise @receipt.errors.full_messages.to_sentence unless @receipt.save
+    if @orders[:order].present?
     @orders[:order].each do |order|
       @order = Order.new
       @order.service_id = order
@@ -36,14 +45,16 @@ class OrdersController < ApplicationController
       @order.save
       raise @order.errors.full_messages.to_sentence unless @order.save
     end
-    if(@order[:cleaning].present?)
+    end
+    if @orders[:cleaning].present?
       @order = Order.new
-      @order.service = Service.find(@orders.cleaning)
+      @order.service = Service.find(@orders[:cleaning])
       @order.receipt = @receipt
       @order.save
     end
-    redirect_to receipt_path(@receipt)
-  end 
+    redirect_to my_orders_path
+  end
+  
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update

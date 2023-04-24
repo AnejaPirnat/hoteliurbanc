@@ -1,0 +1,43 @@
+<!-- app/views/admin/admin_panel.html.erb -->
+
+<h1>Admin Panel</h1>
+
+<h2>Users</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Receipts</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Receipt ID</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receipts.each do |receipt| %>
+      <tr>
+        <td><%= receipt.id %></td>
+        <td><%= receipt.created_at %></td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
