@@ -11,6 +11,7 @@
 </div>
 
 <h2> Order services to your room! </h2>
+
 <div class="cards-container">
 <div class="login-card2">
   <h3>Room cleaning</h3>
@@ -81,7 +82,7 @@
   <hr>
 <% @activity.each do |a| %>
   <div class="activity">
-    <%= check_box_tag('activity[]', a.id) %>
+    <%= check_box_tag('order[]', a.id) %>
     <%= label_tag("activity_#{a.name.downcase}", a.name, style: 'font-size: 20px;') %>
     <label><%= a.price %>€</label>
   </div>

@@ -26,21 +26,12 @@ class ServicesController < ApplicationController
   end
 
 
-
-  # POST /services or /services.json
   def create
     @service = Service.new(service_params)
-
-    respond_to do |format|
-      if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
-        format.json { render :show, status: :created, location: @service }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
-    end
+    @service.save
+    redirect_to services_path
   end
+  
 
   # PATCH/PUT /services/1 or /services/1.json
   def update
@@ -64,7 +55,6 @@ class ServicesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
@@ -79,5 +69,5 @@ class ServicesController < ApplicationController
     def order_params
       params.permit(:cleaning, :food, :drink, :order)
     end
-end
 
+end
