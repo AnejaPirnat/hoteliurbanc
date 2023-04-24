@@ -27,6 +27,10 @@ class OrdersController < ApplicationController
     @receipt.paid = false
     @receipt.save
     raise @receipt.errors.full_messages.to_sentence unless @receipt.save
+    if @orders[:order].nil?
+      redirect_to root_path
+      return
+    end
     @orders[:order].each do |order|
       @order = Order.new
       @order.service_id = order
@@ -42,7 +46,7 @@ class OrdersController < ApplicationController
       @order.receipt = @receipt
       @order.save
     end
-    redirect_to receipt_path(@receipt)
+    redirect_to my_receipts_path
   end 
 
   # PATCH/PUT /orders/1 or /orders/1.json

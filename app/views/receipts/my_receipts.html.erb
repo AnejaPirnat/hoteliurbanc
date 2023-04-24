@@ -1,0 +1,30 @@
+
+<h1>My Receipts</h1>
+
+<style>
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receipts.each do |receipt| %>
+      <tr>
+        <td><%= receipt.id %></td>
+        <td><%= receipt.created_at %></td>
+        <td>
+          <%= link_to 'Show', receipt_path(receipt) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
