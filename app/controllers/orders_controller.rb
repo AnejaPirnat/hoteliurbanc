@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
       @order.receipt = @receipt
       @order.save
     end
-    redirect_to my_receipts_path
+    redirect_to "/receipts/#{@receipt.id}"
   end 
 
   # PATCH/PUT /orders/1 or /orders/1.json

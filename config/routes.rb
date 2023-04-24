@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'my_orders', to: 'orders#my_orders'
   get 'my_receipts', to: 'receipts#my_receipts'
   
+  
 
 
 

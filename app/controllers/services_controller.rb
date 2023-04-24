@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+
 
   # GET /services or /services.json
   def index
@@ -8,9 +10,8 @@ class ServicesController < ApplicationController
     @activity = Service.all.where(serviceType:"Activity")
     @cleaning = Service.all.where(serviceType:"Cleaning")
     @order = Order.new(order_params)
-  end
 
-  
+  end
 
   # GET /services/1 or /services/1.json
   def show
@@ -70,4 +71,11 @@ class ServicesController < ApplicationController
       params.permit(:cleaning, :food, :drink, :order)
     end
 
+    def authenticate_user!
+      if user_signed_in?
+        super
+      else
+        redirect_to new_user_session_path, notice: 'Please sign in'
+      end
+    end
 end
