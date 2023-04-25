@@ -1,0 +1,32 @@
+<h1>All Receipts</h1>
+
+<style>
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Actions</th>
+      <th> Completed services </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receipts.each do |receipt| %>
+      <tr>
+        <td><%= receipt.id %></td>
+        <td><%= receipt.user.email %></td>
+        <td><%= receipt.created_at %></td>
+        <td><%= link_to "View Receipt", receipt_path(receipt) %></td>
+        <td> <%= receipt.paid %> </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

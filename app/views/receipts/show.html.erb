@@ -17,7 +17,7 @@
                                     <td class="content-block">
                                         <table class="invoice">
                                             <tbody><tr>
-                                                <td><%= current_user.email%><br><%= @receipt.created_at %></td>
+                                                <td><%= @receipt.user.email%><br><%= @receipt.created_at %></td>
                                             </tr>
                                              <% @orders.each do |o| %>
                                             <tr>
@@ -31,7 +31,14 @@
                                                 </td>
                                             </tr>
                                             <% end %>
-                                        </tbody></table>
+                                          </tbody></table>
+                                        <% if current_user.admin == true %> 
+                                         <tr>
+                                            <td class="content-block">
+                                                <%= link_to "Confirm", update_order_path(@receipt), data: { "turbo-method": :patch } %>
+                                            </td>
+                                        </tr>
+                                        <% end %>
                                     </td>
                                 </tr>
                                 <tr>

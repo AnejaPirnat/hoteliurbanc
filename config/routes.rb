@@ -15,12 +15,7 @@ Rails.application.routes.draw do
   get '/receipts/:id', to: 'receipts#show', as: 'receipt'
   get 'my_orders', to: 'orders#my_orders'
   get 'my_receipts', to: 'receipts#my_receipts'
-  
-  
-
-
-
-
-
+  get '/Admin', to: 'receipts#admin', as: 'admin'
+  patch '/receipts/:id', to: 'receipts#confirm', as: 'update_order'
 
 end
